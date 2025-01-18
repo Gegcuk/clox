@@ -1,9 +1,12 @@
 #include "common.h" // Include common utilities and definitions for portability and standard functionality.
 #include "chunk.h"  // Include the definitions and functions for managing chunks of bytecode.
 #include "debug.h"  // Include the debugging utilities for disassembling and analyzing bytecode.
+#include "vm.h"
 
 int main(int argc, const char* argv[]) {
     // Entry point of the program. Takes command-line arguments but does not use them in this example.
+
+    initVM();
 
     Chunk chunk;             // Declare a `Chunk` structure to hold the bytecode and associated metadata.
     initChunk(&chunk);       // Initialize the chunk to prepare it for storing instructions and constants.
@@ -27,6 +30,8 @@ int main(int argc, const char* argv[]) {
     // Disassemble the chunk, printing its contents in a human-readable format for debugging.
     // The name "test chunk" is used as a header in the output.
     disassembleChunk(&chunk, "test chunk");
+
+    freeVM();
 
     // Free the memory used by the chunk, including its code, line numbers, and constants.
     // This step is crucial to avoid memory leaks.
