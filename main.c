@@ -31,6 +31,7 @@ int main(int argc, const char* argv[]) {
     // The name "test chunk" is used as a header in the output.
     disassembleChunk(&chunk, "test chunk");
 
+    interpret(&chunk);
     freeVM();
 
     // Free the memory used by the chunk, including its code, line numbers, and constants.
