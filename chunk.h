@@ -11,6 +11,11 @@
 // These opcodes are used to identify the operations to be performed during execution.
 typedef enum {
     OP_CONSTANT, // Push a constant value onto the stack.
+    OP_ADD,
+    OP_SUBTRACT,
+    OP_MULTIPLY,
+    OP_DIVIDE,
+    OP_NEGATE,
     OP_RETURN,   // Return from the current function or script execution.
 } OpCode;
 

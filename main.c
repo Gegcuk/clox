@@ -23,6 +23,19 @@ int main(int argc, const char* argv[]) {
     // This index is used by the `OP_CONSTANT` instruction to reference the correct value.
     writeChunk(&chunk, constant, 123);
 
+    constant = addConstant(&chunk, 3.4);
+    writeChunk(&chunk, OP_CONSTANT, 123);
+    writeChunk(&chunk, constant, 123);
+
+    writeChunk(&chunk, OP_ADD, 123);
+
+    constant = addConstant(&chunk, 5.6);
+    writeChunk(&chunk, OP_CONSTANT, 123);
+    writeChunk(&chunk, constant, 123);
+
+    writeChunk(&chunk, OP_DIVIDE, 123);
+    writeChunk(&chunk, OP_NEGATE, 123);
+
     // Write the `OP_RETURN` instruction to the chunk, specifying the line number 123.
     // This instruction signals the end of execution or the return from a function.
     writeChunk(&chunk, OP_RETURN, 123);
